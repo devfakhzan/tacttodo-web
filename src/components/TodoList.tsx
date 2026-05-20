@@ -1,5 +1,5 @@
 import { useMutation, useQuery } from "@apollo/client";
-import { FormEvent, useState } from "react";
+import { SubmitEvent, useState } from "react";
 import {
   CREATE_TODO_MUTATION,
   TODOS_QUERY,
@@ -26,7 +26,7 @@ export function TodoList({ email }: TodoListProps) {
     refetchQueries: [{ query: TODOS_QUERY }],
   });
 
-  async function handleSubmit(event: FormEvent) {
+  async function handleSubmit(event: SubmitEvent<HTMLFormElement>) {
     event.preventDefault();
     const trimmed = title.trim();
     if (!trimmed) {

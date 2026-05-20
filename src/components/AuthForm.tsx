@@ -1,5 +1,5 @@
 import { useMutation } from "@apollo/client";
-import { FormEvent, useState } from "react";
+import { SubmitEvent, useState } from "react";
 import { LOGIN_MUTATION, SIGNUP_MUTATION } from "../graphql/operations";
 import { setToken } from "../lib/auth";
 import { getErrorMessage } from "../lib/errors";
@@ -26,7 +26,7 @@ export function AuthForm({ onSuccess }: AuthFormProps) {
 
   const loading = loginLoading || signupLoading;
 
-  async function handleSubmit(event: FormEvent) {
+  async function handleSubmit(event: SubmitEvent<HTMLFormElement>) {
     event.preventDefault();
     setError(null);
 
