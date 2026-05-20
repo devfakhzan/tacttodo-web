@@ -71,3 +71,14 @@ export const TOGGLE_TODO_MUTATION = gql`
     }
   }
 `;
+
+export const UPDATE_TODO_MUTATION = gql`
+  mutation UpdateTodo($id: ID!, $title: String!) {
+    updateTodo(id: $id, title: $title) {
+      id
+      title
+      completed
+      createdAt
+    }
+  }
+`;
