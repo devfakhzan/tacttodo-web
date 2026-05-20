@@ -2,18 +2,20 @@ import { useMutation, useQuery } from "@apollo/client";
 import { FormEvent, useState } from "react";
 import {
   CREATE_TODO_MUTATION,
-  ME_QUERY,
   TODOS_QUERY,
 } from "../graphql/operations";
 import { getErrorMessage } from "../lib/errors";
-import type { Todo, User } from "../types";
+import type { Todo } from "../types";
 import { TodoItem } from "./TodoItem";
 
-export function TodoList() {
+type TodoListProps = {
+  email: string;
+};
+
+export function TodoList({ email }: TodoListProps) {
   const [title, setTitle] = useState("");
   const [error, setError] = useState<string | null>(null);
 
-  const { data: meData } = useQuery<{ me: User | null }>(ME_QUERY);
   const {
     data: todosData,
     loading: todosLoading,
@@ -41,7 +43,6 @@ export function TodoList() {
   }
 
   const todos = todosData?.todos ?? [];
-  const email = meData?.me?.email;
 
   return (
     <div className="space-y-6">

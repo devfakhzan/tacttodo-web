@@ -37,7 +37,7 @@ export function App() {
       return <AuthPage onSuccess={handleAuthSuccess} />;
     }
 
-    return <TodosPage onLogout={handleLogout} />;
+    return <TodosPage onLogout={handleLogout} email={data.me.email} />;
   }
 
   return <AuthPage onSuccess={handleAuthSuccess} />;

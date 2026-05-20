@@ -5,9 +5,10 @@ import { clearToken } from "../lib/auth";
 
 type TodosPageProps = {
   onLogout: () => void;
+  email: string;
 };
 
-export function TodosPage({ onLogout }: TodosPageProps) {
+export function TodosPage({ onLogout, email }: TodosPageProps) {
   const client = useApolloClient();
 
   function handleLogout() {
@@ -30,7 +31,7 @@ export function TodosPage({ onLogout }: TodosPageProps) {
         </button>
       }
     >
-      <TodoList />
+      <TodoList email={email} />
     </Layout>
   );
 }
