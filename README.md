@@ -42,7 +42,7 @@ Auth tokens are stored in `localStorage` under `tacttodo_token`.
 - **Data:** Apollo Client talks to the shared GraphQL API
 - **Auth:** Login/signup mutations return a JWT; auth link adds the Bearer header on each request
 - **Layout:** Single-page flow. Unauthenticated users see the auth form. Logged-in users see the todo list.
-- **Deploy:** Static build on Vercel. Set `VITE_GRAPHQL_URL` in project env vars for production.
+- **Deploy:** Static build on Vercel. Set `VITE_GRAPHQL_URL` in project env vars for production. Backend data lives in DynamoDB on AWS.
 
 Responsive layout uses Tailwind breakpoints (`sm:`) so the form and list work on phone-width screens.
 
